@@ -2,12 +2,17 @@
     import Todo from "./Todo.svelte";
 
     let text = "";
-    let todos = [];
+    let todos: string[] = [];
     let submit = () => {
         todos.push(text);
         text = "";
         todos = todos;
     };
+
+    let onRemove = (todo: string) => {
+        todos.splice(todos.indexOf(todo), 1);
+        todos = todos;
+    }
 
 </script>
 
@@ -17,7 +22,7 @@
     </form>
     <ul>
         {#each todos as todo}
-            <Todo><span>{todo}</span></Todo>
+            <Todo on:remove={onRemove(todo)}><span>{todo}</span></Todo>
         {/each}
     </ul>
 </div>
@@ -30,5 +35,9 @@
         margin-bottom: 12px;
         border-radius: 12px;
         border: 1px black solid;
+    }
+
+    .close-btn {
+        margin-left: auto;
     }
 </style>
