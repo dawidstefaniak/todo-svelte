@@ -1,0 +1,18 @@
+{
+    "trailingComma": "none",
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": false,
+    "overrides": [
+        {
+            "files": "*.svelte",
+            "options": {
+                "svelteBracketNewLine": false,
+                "svelteAllowShorthand": false,
+                "svelteSortOrder": "options-scripts-styles-markup",
+                "plugins": ["prettier-plugin-svelte"]
+            }
+        }
+    ],
+    "pluginSearchDirs": ["."]
+}
